@@ -13,6 +13,12 @@ def post_draft(request):
 	posts = Post.objects.filter(published_date__isnull=True).order_by('created_date')
 	return render(request, 'blog/post_draft_list.html',{'posts':posts})
 
+def post_main(request):
+        return render(request,'frame/post_main.html')
+
+def resume(request):
+        return render(request,'resume/index_rz.html')
+
 def post_publish(request, pk):
 	post = get_object_or_404(Post,pk=pk)
         post.publish()
